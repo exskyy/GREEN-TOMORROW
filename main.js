@@ -19,7 +19,6 @@ function decrease() {
 }
 
 // =================== СЕКЦИЯ УГРОЗЫ ===================
-// Данные для каждой угрозы
 const threatsData = {
     deforestation: {
         title: "Вырубка лесов",
@@ -34,19 +33,16 @@ const threatsData = {
         text: "Средняя температура на планете уже выросла на 1,2°C по сравнению с доиндустриальной эпохой. Последствия: участившиеся лесные пожары (в 2023 году сгорело 18 млн га леса в Канаде), наводнения, засухи и таяние ледников. Даже при оптимистичном сценарии к 2100 году температура вырастет на 1,5–2°C, что приведёт к исчезновению 70% коралловых рифов."
     }
 };
-//====================== тексты в угрозах =================
-// Общий текст по умолчанию
+
 const defaultThreat = {
     title: "Общая климатическая ситуация",
     text: "Планета нагревается быстрее, чем за последние 2000 лет. 2023 год стал самым тёплым за всю историю наблюдений. Леса, которые поглощают 30% выбросов CO₂, исчезают с катастрофической скоростью. Без немедленных действий к 2050 году температура может вырасти на 2-3°C, что приведёт к необратимым последствиям. Но у нас есть решение — восстановление лесов может поглотить до 30% всех выбросов углекислого газа."
 };
 
-// Получаем элементы
 const threatBtns = document.querySelectorAll('.threats__btn');
 const infoTitle = document.querySelector('.threats__info-title');
 const infoText = document.querySelector('.threats__info-text');
 
-// Функция обновления информации
 function updateThreatInfo(threatId) {
     let data;
     
@@ -56,38 +52,28 @@ function updateThreatInfo(threatId) {
         data = threatsData[threatId];
     }
     
-    // Анимация исчезновения
     infoText.style.opacity = '0';
     infoText.style.transform = 'translateY(10px)';
     
     setTimeout(() => {
         infoTitle.textContent = data.title;
         infoText.textContent = data.text;
-        
-        // Анимация появления
         infoText.style.transition = 'all 0.3s ease';
         infoText.style.opacity = '1';
         infoText.style.transform = 'translateY(0)';
     }, 150);
 }
 
-// Обработчики для кнопок
 threatBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Убираем активный класс у всех кнопок
         threatBtns.forEach(b => b.classList.remove('threats__btn--active'));
-        // Добавляем активный класс нажатой кнопке
         btn.classList.add('threats__btn--active');
-        
-        // Получаем id угрозы
         const threatId = btn.getAttribute('data-threat');
-        // Обновляем информацию
         updateThreatInfo(threatId);
     });
 });
 
-// =================== ПЛАВНАЯ ПРОКРУТКА К БЛОКАМ ===================
-// Функция плавного скролла
+// =================== ПЛАВНАЯ ПРОКРУТКА ===================
 function smoothScroll(targetElement, duration = 800) {
     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
@@ -112,11 +98,9 @@ function smoothScroll(targetElement, duration = 800) {
     requestAnimationFrame(animation);
 }
 
-// Получаем все ссылки навигации
+// =================== НАВИГАЦИЯ ===================
 const navLinks = document.querySelectorAll('.header-nav__menu a, .footer__nav a');
-const donateButtons = document.querySelectorAll('.header-nav__menu--item-donate, .main-hero__container-text--btn_donate, .howtohelp__cards-item--btn');
 
-// Функция получения секции по тексту ссылки
 function getTargetSection(linkText) {
     const text = linkText.toLowerCase();
     if (text.includes('посадить') || text.includes('дерево') || text.includes('🌲')) return document.querySelector('#donate, .main-hero');
@@ -127,11 +111,9 @@ function getTargetSection(linkText) {
     return null;
 }
 
-// Добавляем обработчики для навигационных ссылок
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        // Если ссылка якорная или пустая
         if (href === '#' || href === '' || href === '#donate') {
             e.preventDefault();
             const sectionName = link.textContent;
@@ -152,8 +134,11 @@ navLinks.forEach(link => {
     });
 });
 
-// Для кнопок "Посадить дерево" во всем сайте
-donateButtons.forEach(btn => {
+// =================== КНОПКИ ДОНАТА (ПРОКРУТКА, КРОМЕ ГЛАВНОЙ) ===================
+// Только эти кнопки делают прокрутку (без главной кнопки hero)
+const scrollDonateBtns = document.querySelectorAll('.header-nav__menu--item-donate, .howtohelp__cards-item--btn');
+
+scrollDonateBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const heroSection = document.querySelector('.main-hero');
@@ -163,7 +148,7 @@ donateButtons.forEach(btn => {
     });
 });
 
-// Для кнопки "Узнать больше"
+// =================== КНОПКА "УЗНАТЬ БОЛЬШЕ" ===================
 const infoBtn = document.querySelector('.main-hero__container-text--btn_info');
 if (infoBtn) {
     infoBtn.addEventListener('click', (e) => {
@@ -175,7 +160,7 @@ if (infoBtn) {
     });
 }
 
-// Для кнопок "Поделиться", "Стать партнёром" и т.д. (оставляем их поведение, но убираем переход наверх)
+// =================== КНОПКИ В СЕКЦИИ "КАК ПОМОЧЬ" ===================
 const allActionBtns = document.querySelectorAll('.howtohelp__cards-item--btn');
 allActionBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
