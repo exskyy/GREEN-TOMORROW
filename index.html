@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Зеленое завтра - вклад в будущее</title>
+
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <div class="header-nav__logo">
+                <img src="./img/logo1.png" alt="логотип компании" class="header-nav__logo--icon">
+                <span class="header-nav__logo--text">
+                    <span class="header-nav__logo--text-first">ЗЕЛЕНОЕ</span>
+                    <span class="header-nav__logo--text-second">ЗАВТРА</span>
+                </span>
+            </div>
+            <ul class="header-nav__menu">
+                <li>
+                    <a href="#" class="header-nav__menu--item">О проекте</a>
+                </li>
+                <li>
+                    <a href="#" class="header-nav__menu--item">Угрозы</a>
+                </li>
+                <li>
+                    <a href="#" class="header-nav__menu--item">Как помочь</a>
+                </li>
+                <li>
+                    <a href="#" class="header-nav__menu--item-donate">🌲 Посадить дерево</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="main-hero" id="donate">
+            <div class="main-hero__container"> 
+                <div class="main-hero__container-text">
+                    <span class="main-hero__container-text--bage">🌱 Инициатива 2026</span>
+                    <h1 class="main-hero__container-text--title">
+                        Посади жизнь —
+                        <br>
+                        подари планете
+                        <br>
+                        <span class="main-hero__container-text--title_second">будущее</span>
+                    </h1>
+                    <p class="main-hero__container-text--description">Каждое посаженное дерево — это чистый воздух, дом для птиц и вклад в здоровое завтра. Присоединяйтесь к движению «Зелёное завтра».</p>
+                    <div class="main-hero__container-text--btn">
+                        <a href="#" class="main-hero__container-text--btn_donate">🌲 Посадить саженец</a>
+                        <a href="#" class="main-hero__container-text--btn_info">Узнать больше</a>
+                    </div>
+                    <div class="main-hero__container-text--stats">
+                        <span class="stat">
+                            <h3 class="stat_title">12 847</h3>
+                            <p class="stat_description">посажено деревьев</p>
+                        </span>
+                        <span class="stat">
+                            <h3 class="stat_title">328</h3>
+                            <p class="stat_description">гектаров леса</p>
+                        </span>
+                        <span class="stat">
+                            <h3 class="stat_title">1 245</h3>
+                            <p class="stat_description">волонтёров</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="calculator">
+                    <h3>Калькулятор пользы</h3>
+                    <p>Сколько деревьев посадить?</p>
+                    <div class="counter">
+                        <button onclick="decrease()">-</button>
+                        <span id="treeCount">5</span>
+                        <button onclick="increase()">+</button>
+                    </div>
+                    <div class="result">
+                        <p>→ CO₂: <span id="co2">125</span> кг/год</p>
+                        <p>→ Кислород для <span id="oxygen">13</span> человек</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about">
+            <div class="about__container">
+                <div class="about__header">
+                    <span class="about__bage">О нас</span>
+                    <h2 class="about__title">О проекте «Зелёное завтра»</h2>
+                    <p class="about__subtitle">Мы — сообщество энтузиастов, которые верят, что каждый может внести вклад в здоровое будущее планеты</p>
+                </div>
+                
+                <div class="about__cards">
+                    <div class="about__card">
+                        <div class="about__card-icon">🌳</div>
+                        <h3 class="about__card-title">Наша цель</h3>
+                        <p class="about__card-text">Восстановить <strong>1000 гектаров леса</strong> к 2030 году через высадку <strong>1 миллиона деревьев</strong> по всей стране</p>
+                        <div class="about__card-footer">Цель 2026: 50 000 саженцев</div>
+                    </div>
+
+                    <div class="about__card">
+                        <div class="about__card-icon">🌲</div>
+                        <h3 class="about__card-title">Наши ценности</h3>
+                        <p class="about__card-text">Прозрачность, экологическое образование, вовлечение местных сообществ и забота о каждом саженце</p>
+                        <div class="about__card-footer">100% отчётов публичны</div>
+                    </div>
+
+                    <div class="about__card">
+                        <div class="about__card-icon">🍃</div>
+                        <h3 class="about__card-title">Наш принцип работы</h3>
+                        <p class="about__card-text">Все пожертвования идут напрямую на закупку саженцев, инвентаря и образовательные программы</p>
+                        <div class="about__card-footer">Прозрачная финансовая отчётность</div>
+                    </div>
+
+                    <div class="about__card">
+                        <div class="about__card-icon">🍀</div>
+                        <h3 class="about__card-title">Наша команда</h3>
+                        <p class="about__card-text">Более <strong>1200 волонтёров</strong>, 15 школ, 8 компаний-партнёров и вы — главная сила изменений</p>
+                        <div class="about__card-footer">Присоединяйтесь к команде</div>
+                    </div>
+                </div>
+
+                <div class="about__stats">
+                    <div class="about__stat-item">
+                        <span class="about__stat-number">2022</span>
+                        <span class="about__stat-label">год основания</span>
+                    </div>
+                    <div class="about__stat-item">
+                        <span class="about__stat-number">12 847</span>
+                        <span class="about__stat-label">посажено деревьев</span>
+                    </div>
+                    <div class="about__stat-item">
+                        <span class="about__stat-number">328</span>
+                        <span class="about__stat-label">гектаров леса</span>
+                    </div>
+                    <div class="about__stat-item">
+                        <span class="about__stat-number">1 245</span>
+                        <span class="about__stat-label">активных волонтёров</span>
+                    </div>
+                </div>
+            </div>
+        </section>       
+        <section class="threats">
+            <div class="threats__container">
+                <div class="threats__header">
+                    <span class="threats__bage">⚠️ Почему это важно</span>
+                    <h2 class="threats__title">Угрозы, которые требуют <span class="threats__title-accent">нашего внимания</span></h2>
+                    <p class="threats__subtitle">Каждые 3 секунды на Земле исчезает лес размером с футбольное поле</p>
+                </div>
+
+                <div class="threats__content">
+                    <!-- Блок с кнопками-угрозами -->
+                    <div class="threats__buttons">
+                        <button class="threats__btn threats__btn--active" data-threat="deforestation">
+                            <span class="threats__btn-icon">🌲</span>
+                            <div class="threats__btn-text">
+                                <span class="threats__btn-title">Вырубка лесов</span>
+                                <span class="threats__btn-stats">−4,7 млн га/год</span>
+                            </div>
+                        </button>
+                        
+                        <button class="threats__btn" data-threat="co2">
+                            <span class="threats__btn-icon">🏭</span>
+                            <div class="threats__btn-text">
+                                <span class="threats__btn-title">Выбросы CO₂</span>
+                                <span class="threats__btn-stats">+50% с 1990</span>
+                            </div>
+                        </button>
+                        
+                        <button class="threats__btn" data-threat="climate">
+                            <span class="threats__btn-icon">🌡️</span>
+                            <div class="threats__btn-text">
+                                <span class="threats__btn-title">Изменение климата</span>
+                                <span class="threats__btn-stats">+1,2°C с 1880</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Блок с динамическим текстом -->
+                    <div class="threats__info" id="threatsInfo">
+                        <div class="threats__info-header">
+                            <h3 class="threats__info-title">Общая климатическая ситуация</h3>
+                        </div>
+                        <p class="threats__info-text" id="threatsText">
+                            Планета нагревается быстрее, чем за последние 2000 лет. 2023 год стал самым тёплым за всю историю наблюдений. 
+                            Леса, которые поглощают 30% выбросов CO₂, исчезают с катастрофической скоростью. 
+                            Без немедленных действий к 2050 году температура может вырасти на 2-3°C, что приведёт к необратимым последствиям.
+                        </p>
+                        <div class="threats__info-footer">
+                            <span class="threats__info-source">📊 Источник: IPCC / FAO / Всемирный банк</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительная статистика -->
+                <div class="threats__stats">
+                    <div class="threats__stat-card">
+                        <div class="threats__stat-number">18 млн</div>
+                        <div class="threats__stat-label">гектаров леса теряется ежегодно</div>
+                    </div>
+                    <div class="threats__stat-card">
+                        <div class="threats__stat-number">30%</div>
+                        <div class="threats__stat-label">суши занято лесами (было 50%)</div>
+                    </div>
+                    <div class="threats__stat-card">
+                        <div class="threats__stat-number">1 млн</div>
+                        <div class="threats__stat-label">видов под угрозой исчезновения</div>
+                    </div>
+                </div>
+            </div>
+        </section>   
+        <section class="howtohelp">
+            <div class="howtohelp__container">
+                <div class="howtohelp__header">
+                    <div class="howtohelp__header-bage">Как помочь</div>
+                    <h1 class="howtohelp__header-title">Как помочь <span class="howtohelp__header-title--accent">планете</span></h1>
+                    <p class="howtohelp__header-description">Каждый может внести вклад в зелёное будущее. Выберите удобный для вас способ</p>
+                </div>
+                <div class="howtohelp__cards">
+                    <div class="howtohelp__cards-item">
+                        <h3 class="howtohelp__cards-item--title">🌳 Посадить дерево</h3>
+                        <p class="howtohelp__cards-item--description">Пожертвуйте от 500₽ — мы посадим дерево от вашего имени и пришлём GPS-координаты саженца</p>
+                        <a href="#" class="howtohelp__cards-item--btn">Посадить</a>
+                    </div>
+                    <div class="howtohelp__cards-item">
+                        <h3 class="howtohelp__cards-item--title">🙋‍♂️ Стать волонтёром</h3>
+                        <p class="howtohelp__cards-item--description">Приезжайте на субботники, помогайте с посадками и уходом за молодым лесом</p>
+                        <a href="#" class="howtohelp__cards-item--btn">Записаться →</a>
+                    </div>
+                    <div class="howtohelp__cards-item">
+                        <h3 class="howtohelp__cards-item--title">📢 Рассказать о нас</h3>
+                        <p class="howtohelp__cards-item--description">Поделитесь проектом в соцсетях — это бесплатно, но каждый новый волонтёр приближает цель</p>
+                        <a href="#" class="howtohelp__cards-item--btn">Поделиться</a>
+                    </div>
+                    <div class="howtohelp__cards-item">
+                        <h3 class="howtohelp__cards-item--title">🏢 Стать партнёром</h3>
+                        <p class="howtohelp__cards-item--description">Компании: организуем корпоративное волонтёрство и компенсацию углеродного следа</p>
+                        <a href="#" class="howtohelp__cards-item--btn">Стать партнёром →</a>
+                    </div>
+                </div>
+            </div>
+        </section>     
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__main">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <span>Зелёное завтра</span>
+                    </div>
+                    <p>Посади дерево — спаси планету</p>
+                </div>
+
+                <div class="footer__nav">
+                    <a href="#">О проекте</a>
+                    <a href="#">Угрозы</a>
+                    <a href="#">Как помочь</a>
+                    <a href="#">Контакты</a>
+                </div>
+
+                <div class="footer__social">
+                    <a href="#">VK</a>
+                    <a href="#">TG</a>
+                    <a href="#">YT</a>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2026 Зелёное завтра</p>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>
